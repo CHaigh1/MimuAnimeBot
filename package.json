@@ -1,0 +1,15 @@
+{
+  "name": "mimuanimebot",
+  "version": "1.0.0",
+  "description": "discord bot for the mimu anime club",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "WarpedCakez",
+  "license": "ISC",
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "winston": "^3.2.1"
+  }
+}
