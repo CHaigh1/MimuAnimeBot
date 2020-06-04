@@ -5,7 +5,7 @@ var events = function events(){
   
   var eventList = "";
   for(var i = 0; i < textByLine.length; i++) {
-    eventList = eventList + textByLine[i].trim() + '\n';
+    eventList += textByLine[i].trim() + '\n';
   }
 
   return eventList;
@@ -23,10 +23,10 @@ var removeEvent = function removeEvent(index){
   var eventList = "";
   for(var i = 0; i < textByLine.length - 1; i++) {
     if(i != index) {
-      eventList = eventList + textByLine[i].trim() + '\n';
+      eventList += textByLine[i].trim() + '\n';
     }
   }
-  eventList = eventList + textByLine[textByLine.length - 1].trim();
+  eventList += textByLine[textByLine.length - 1].trim();
 
   fs.writeFile('events.txt', eventList, (err) => {
     if (err) throw err;

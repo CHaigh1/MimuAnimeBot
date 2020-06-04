@@ -57,37 +57,36 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     var input = "";
                     var inputArr = args.slice(1);
                     
-                    inputArr.forEach(word => input = input + word + ' ');
+                    inputArr.forEach(word => input += word + ' ');
                     eventGrabber.addEvent(input);
                     
                     bot.sendMessage({
                         to: channelID,
-                        message: 'Recieved event!'
+                        message: '**Recieved event!**'
                     });
                 }
                 else if(args[0] == 'remove') {
                     if(args.length != 2) {
                         bot.sendMessage({
                             to: channelID,
-                            message: 'Incorrect usage! Proper format is "!events remove <message id>"'
+                            message: '**Incorrect usage! Proper format is "!events remove <message id>"**'
                         });
                     } 
                     else {
                         eventGrabber.removeEvent(args[1]);
                         bot.sendMessage({
                             to: channelID,
-                            message: 'Event removed!'
+                            message: '**Event removed!**'
                         });
                     }
                 }
                 else {
                     bot.sendMessage({
                         to: channelID,
-                        message: 'Here are the upcoming events:\n\n' + eventGrabber.events()
+                        message: '**Here are the upcoming events:**\n```\n' + eventGrabber.events() + '```'
                     });
                 }
             break;
-            // Just add any case commands if you want to..
          }
      }
 });
