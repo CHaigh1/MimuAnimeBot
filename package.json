@@ -1,6 +1,6 @@
 {
   "name": "mimuanimebot",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "discord bot for the mimu anime club",
   "main": "bot.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "jikanjs": "^0.7.0",
     "winston": "^3.2.1"
   }
 }

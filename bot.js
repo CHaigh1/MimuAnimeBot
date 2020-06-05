@@ -3,6 +3,7 @@ var logger = require('winston');
 var auth = require('./auth.json');
 
 var eventGrabber = require('./eventGrabber.js');
+var malParser = require('./malParser.js');
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console, {
@@ -84,6 +85,24 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     bot.sendMessage({
                         to: channelID,
                         message: '**Here are the upcoming events:**\n```\n' + eventGrabber.events() + '```'
+                    });
+                }
+            break;
+            // !anime
+            // Does anime things
+            case 'anime':
+                if(args.length != 2) {
+                    bot.sendMessage({
+                        to: channelID,
+                        message: '**Incorrect usage! Proper format is "!anime <year> <season>"**'
+                    })
+                }
+                else {
+                    malParser.topSeason(args[0], args[1], function(results) {
+                        bot.sendMessage({
+                            to: channelID,
+                            message: '**Here are the top 5 shows from the ' + args[1] + ' ' + args[0] + ' season:**\n```\n' + results + '```'
+                        });
                     });
                 }
             break;
