@@ -7,6 +7,7 @@ var malParser = require('./helpers/malParser.js');
 var randomImage = require('./helpers/randomImage.js');
 var solve = require('./helpers/solve.js');
 var randomGame = require('./helpers/randomGame.js');
+var vineBoom = require('./helpers/vineBoomHelper.js');
 
 // Configure logger settings
 logger.remove(logger.transports.Console);
@@ -23,6 +24,8 @@ bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
+
+    vineBoom.vineBoomStart(bot);
 });
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
@@ -94,7 +97,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             // !anime
             // Does anime things
-            case 'anime':
+            /*case 'anime':
                 if(args.length != 2) {
                     bot.sendMessage({
                         to: channelID,
@@ -109,7 +112,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         });
                     });
                 }
-            break;
+            break;*/
             // !epic
             // Shows how epic you are
             case 'epic':
